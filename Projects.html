@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Sumanth</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Colors */
+      :root {
+        --bg: #000000;
+        --silver: #c0c0c0;
+        --skyblue: #4da8da;
+        --accent: #00c6ff;
+        --secondary: #c0c0c0;
+      }
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--skyblue);
+        overflow-x: hidden;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 100px;
+        background: rgba(0, 0, 0, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(77, 168, 218, 0.3);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      /* Logo - circular rotating */
+      .navbar .logo1 {
+        font-family: "Pacifico", cursive;
+        font-size: 36px;
+        color: var(--silver);
+        text-shadow: 0 0 2px var(--silver);
+        border: 3px solid var(--skyblue);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+      }
+
+      .navbar .logo1:hover {
+        box-shadow: 0 0 25px rgba(77, 168, 218, 0.8);
+        transform: scale(1.05);
+      }
+
+      /* Enhanced Navbar Menu */
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.2);
+        border: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      .navbar ul li {
+        position: relative;
+      }
+
+      .navbar ul li a {
+        text-decoration: none;
+        color: var(--skyblue);
+        font-weight: 600;
+        font-size: 18px;
+        padding: 12px 20px;
+        transition: all 0.4s ease;
+        position: relative;
+        display: block;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Enhanced Hover effect with gradient background */
+      .navbar ul li a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(77, 168, 218, 0.1),
+          rgba(0, 198, 255, 0.2),
+          rgba(77, 168, 218, 0.1)
+        );
+        transition: all 0.6s ease;
+        z-index: -1;
+      }
+
+      .navbar ul li a:hover::before {
+        left: 0;
+      }
+
+      /* Animated underline effect */
+      .navbar ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff, #4da8da);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: translateX(-50%);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.7);
+      }
+
+      .navbar ul li a:hover::after {
+        width: 80%;
+      }
+
+      .navbar ul li a:hover {
+        color: var(--silver);
+        text-shadow: 0 0 8px var(--silver);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active {
+        color: var(--silver);
+        background: linear-gradient(
+          135deg,
+          rgba(77, 168, 218, 0.2),
+          rgba(0, 198, 255, 0.3)
+        );
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active::after {
+        width: 80%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(77, 168, 218, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 198, 255, 0.1) 0%,
+            transparent 50%
+          );
+        z-index: -1;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+        color: var(--silver);
+        margin-bottom: 20px;
+        text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        animation: fadeInDown 1s ease-out, textGlow 3s infinite alternate;
+      }
+
+      .hero p {
+        font-size: 22px;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--secondary);
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      /* Floating elements */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.1);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.3);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        width: 30px;
+        height: 30px;
+      }
+
+      .floating-element:nth-child(2) {
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+        width: 50px;
+        height: 50px;
+      }
+
+      .floating-element:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+        width: 25px;
+        height: 25px;
+      }
+
+      /* Projects Section */
+      .projects {
+        background: var(--bg);
+        padding: 80px 100px;
+        color: var(--skyblue);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .projects::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(77, 168, 218, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 198, 255, 0.1) 0%,
+            transparent 50%
+          );
+        z-index: -1;
+      }
+
+      .section-title {
+        font-size: 42px;
+        color: var(--silver);
+        margin-bottom: 40px;
+        text-align: center;
+        text-shadow: 0 0 6px var(--silver);
+      }
+
+      .section-title::after {
+        content: "";
+        width: 100px;
+        height: 3px;
+        background: var(--skyblue);
+        display: block;
+        margin: 12px auto 0;
+        box-shadow: 0 0 10px var(--skyblue);
+      }
+
+      /* Projects Header */
+      .projects-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .projects-intro {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      /* GitHub Stats */
+      .github-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .stat-card {
+        background: rgba(77, 168, 218, 0.1);
+        padding: 30px 20px;
+        border-radius: 15px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        text-align: center;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 20px rgba(77, 168, 218, 0.2);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(77, 168, 218, 0.3);
+        background: rgba(77, 168, 218, 0.15);
+      }
+
+      .stat-number {
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--silver);
+        text-shadow: 0 0 10px var(--silver);
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 16px;
+        color: var(--skyblue);
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .project-card {
+        background: rgba(77, 168, 218, 0.1);
+        border-radius: 20px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        box-shadow: 0 8px 25px rgba(77, 168, 218, 0.2);
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+        position: relative;
+      }
+
+      .project-card.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(77, 168, 218, 0.4);
+        background: rgba(77, 168, 218, 0.15);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 220px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(77, 168, 218, 0.2),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+        z-index: 1;
+      }
+
+      .project-card:hover .project-image::before {
+        transform: translateX(100%);
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 2;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-icon {
+        font-size: 48px;
+        color: white;
+        transform: scale(0);
+        transition: transform 0.4s ease 0.2s;
+      }
+
+      .project-card:hover .project-icon {
+        transform: scale(1);
+      }
+
+      .project-content {
+        padding: 25px;
+        position: relative;
+      }
+
+      .project-title {
+        font-size: 24px;
+        color: var(--silver);
+        margin-bottom: 15px;
+        text-shadow: 0 0 5px var(--silver);
+        position: relative;
+        display: inline-block;
+      }
+
+      .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--skyblue);
+        transition: width 0.4s ease;
+      }
+
+      .project-card:hover .project-title::after {
+        width: 100%;
+      }
+
+      .project-description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: var(--skyblue);
+        height: 80px;
+        overflow: hidden;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tech-tag::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(77, 168, 218, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .tech-tag:hover::before {
+        left: 100%;
+      }
+
+      .tech-tag:hover {
+        background: rgba(77, 168, 218, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.3);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .project-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: rgba(77, 168, 218, 0.2);
+        border-radius: 25px;
+        text-decoration: none;
+        color: var(--skyblue);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .project-link:hover::before {
+        left: 100%;
+      }
+
+      .project-link:hover {
+        background: rgba(77, 168, 218, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(77, 168, 218, 0.4);
+        color: var(--silver);
+      }
+
+      /* Featured Project */
+      .featured-project {
+        grid-column: 1 / -1;
+        margin-bottom: 40px;
+      }
+
+      .featured-project .project-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        transform: none;
+      }
+
+      .featured-project .project-card:hover {
+        transform: translateY(-10px) scale(1.01);
+      }
+
+      .featured-project .project-image {
+        height: 100%;
+      }
+
+      /* Floating animation for cards */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-10px) scale(1.02);
+        }
+      }
+
+      .project-card:hover {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Particle background effect */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--skyblue);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: floatParticle 15s infinite linear;
+      }
+
+      /* Floating elements from education page */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.1);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.3);
+        animation: floatElement 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        width: 30px;
+        height: 30px;
+      }
+
+      .floating-element:nth-child(2) {
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+        width: 50px;
+        height: 50px;
+      }
+
+      .floating-element:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+        width: 25px;
+        height: 25px;
+      }
+
+      .floating-element:nth-child(4) {
+        top: 40%;
+        left: 70%;
+        animation-delay: 1s;
+        width: 35px;
+        height: 35px;
+      }
+
+      .floating-element:nth-child(5) {
+        top: 70%;
+        left: 50%;
+        animation-delay: 3s;
+        width: 45px;
+        height: 45px;
+      }
+
+      .floating-element:nth-child(6) {
+        top: 30%;
+        left: 30%;
+        animation-delay: 5s;
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Animations */
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes floatElement {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes textGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 25px rgba(77, 168, 218, 0.8),
+            0 0 35px rgba(77, 168, 218, 0.6);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .navbar {
+          padding: 30px 50px;
+        }
+
+        .projects {
+          padding: 80px 50px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .featured-project .project-card {
+          grid-template-columns: 1fr;
+        }
+
+        .github-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .navbar ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .projects {
+          padding: 60px 20px;
+        }
+
+        .github-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-number {
+          font-size: 36px;
+        }
+
+        .hero h1 {
+          font-size: 40px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body class="projects-page">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo1">Sumanth</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+      <div class="container">
+        <h1>My Projects.</h1>
+        <p>A showcase of my technical skills and creative solutions...</p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects fade-in" id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+
+      <!-- Projects Header -->
+      <div class="projects-header">
+        <div class="projects-intro">
+          <p>
+            Welcome to my projects portfolio! Here you'll find a collection of
+            my work ranging from web applications to IoT solutions. Each project
+            represents my passion for creating innovative solutions and my
+            journey in mastering various technologies.
+          </p>
+        </div>
+      </div>
+
+      <!-- GitHub Stats -->
+      <div class="github-stats">
+        <div class="stat-card">
+          <div class="stat-number" data-target="7">0</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-label">Years Coding</div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Featured Project - Learning League -->
+        <div class="featured-project">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Learning League"
+              />
+              <div class="project-overlay">
+                <i class="fas fa-gamepad project-icon"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Learning League</h3>
+              <p class="project-description">
+                An advanced educational gaming platform with integrated online
+                compiler. Features user authentication, progress tracking,
+                real-time code execution, and gamified learning paths. Includes
+                Firebase for data persistence and JDoodle API for compiling code
+                in multiple programming languages. Built with modern web
+                technologies and responsive design principles.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">JDoodle API</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Game Development</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/sumanthindraganti/Learning-League"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> Source Code
+                </a>
+                <a
+                  href="https://quiet-praline-d07599.netlify.app"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sageous Cart -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Sageous Cart E-commerce"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-shopping-cart project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Sageous Cart</h3>
+            <p class="project-description">
+              A modern e-commerce platform built with HTML, CSS, and Bootstrap.
+              Features responsive product catalog, shopping cart functionality,
+              user authentication, and secure checkout process. Includes
+              advanced filtering options and optimized performance for seamless
+              shopping experience.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/Sagious-Cart"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Online Book Store -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+              alt="Online Book Store"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-book-open project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Online Book Store</h3>
+            <p class="project-description">
+              A fully responsive online bookstore built with pure HTML and CSS.
+              Features an elegant book catalog, category filtering, book details
+              pages, and a modern shopping cart interface. Includes responsive
+              navigation, search functionality, and book recommendation
+              sections.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Flexbox</span>
+              <span class="tech-tag">Grid Layout</span>
+              <span class="tech-tag">Responsive Design</span>
+              <span class="tech-tag">CSS Animations</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/Sagious-Pages"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Country Info -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+              alt="Country Information App"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-globe-americas project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Country Info</h3>
+            <p class="project-description">
+              An interactive web application that provides comprehensive
+              information about countries worldwide. Users can search, filter,
+              and compare countries based on various parameters including
+              population, area, languages, and economic indicators. Integrated
+              with REST Countries API for real-time data.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">Local Storage</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/Asynchronous-JavaScript---Country-Info-Finder-"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Portfolio -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80"
+              alt="Personal Portfolio"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-user-tie project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Personal Portfolio</h3>
+            <p class="project-description">
+              A modern, responsive portfolio website showcasing my skills,
+              projects, and professional journey. Features smooth animations,
+              dark theme design, and optimized performance. Includes interactive
+              sections for education, experience, and project showcases with
+              GitHub integration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/Personal-Portfolio"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Plant Monitoring -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Smart Plant Monitoring"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-seedling project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Smart Plant Monitoring</h3>
+            <p class="project-description">
+              An IoT-based system that monitors plant health and automates
+              watering processes. Utilizes soil moisture sensors, temperature
+              sensors, and Arduino microcontrollers to collect data. Features a
+              web dashboard for real-time monitoring and analytics.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Arduino</span>
+              <span class="tech-tag">IoT</span>
+              <span class="tech-tag">Sensors</span>
+              <span class="tech-tag">Data Visualization</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/smart-plant-monitoring"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Documentation
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Diary -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1198&q=80"
+              alt="Personal Diary"
+            />
+            <div class="project-overlay">
+              <i class="fas fa-book project-icon"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Personal Diary</h3>
+            <p class="project-description">
+              A secure digital diary application with user authentication and
+              data encryption. Features rich text editing, entry categorization,
+              search functionality, and data export options. Built with a focus
+              on privacy and user experience with a clean, intuitive interface.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Thymeleaf</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/sumanthindraganti/personal-diary"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Create particle background
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random properties
+          const size = Math.random() * 3 + 1;
+          const left = Math.random() * 100;
+          const animationDuration = Math.random() * 20 + 10;
+          const animationDelay = Math.random() * 5;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${left}%`;
+          particle.style.animationDuration = `${animationDuration}s`;
+          particle.style.animationDelay = `${animationDelay}s`;
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Stats animation
+      const statNumbers = document.querySelectorAll(".stat-number");
+
+      function animateStats() {
+        statNumbers.forEach((stat) => {
+          const target = parseInt(stat.getAttribute("data-target"));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+
+      // Project cards animation
+      const projectCards = document.querySelectorAll(".project-card");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+
+              // Animate stats when first project card is visible
+              if (entry.target === projectCards[0]) {
+                animateStats();
+              }
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      projectCards.forEach((card) => observer.observe(card));
+
+      // Navbar hover effects
+      const navLinks = document.querySelectorAll(".navbar ul li a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-3px)";
+          this.style.boxShadow = "0 8px 20px rgba(77, 168, 218, 0.5)";
+        });
+
+        link.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+          if (!this.classList.contains("active")) {
+            this.style.boxShadow = "none";
+          }
+        });
+      });
+
+      // Initialize animations on page load
+      window.addEventListener("load", () => {
+        createParticles();
+        // Animate stats after a short delay
+        setTimeout(animateStats, 500);
+      });
+      // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Disable specific keys
+  document.addEventListener('keydown', function(e) {
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'u')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Developer tools detection
+  function detectDevTools() {
+    const widthThreshold = 160;
+    const heightThreshold = 160;
+    
+    if (window.outerWidth - window.innerWidth > widthThreshold || 
+        window.outerHeight - window.innerHeight > heightThreshold) {
+      document.body.innerHTML = '';
+      document.body.style.background = '#000';
+    }
+  }
+
+  // Continuous monitoring
+  setInterval(detectDevTools, 500);
+
+  
+    </script>
+  </body>
+</html>
