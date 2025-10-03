@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience - Sumanth</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Colors */
+      :root {
+        --bg: #000000;
+        --silver: #c0c0c0;
+        --skyblue: #4da8da;
+        --accent: #00c6ff;
+        --secondary: #c0c0c0;
+      }
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--skyblue);
+        overflow-x: hidden;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 100px;
+        background: rgba(0, 0, 0, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(77, 168, 218, 0.3);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      /* Logo - circular rotating */
+      .navbar .logo1 {
+        font-family: "Pacifico", cursive;
+        font-size: 36px;
+        color: var(--silver);
+        text-shadow: 0 0 2px var(--silver);
+        border: 3px solid var(--skyblue);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+      }
+
+      .navbar .logo1:hover {
+        box-shadow: 0 0 25px rgba(77, 168, 218, 0.8);
+        transform: scale(1.05);
+      }
+
+      /* Enhanced Navbar Menu */
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.2);
+        border: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      .navbar ul li {
+        position: relative;
+      }
+
+      .navbar ul li a {
+        text-decoration: none;
+        color: var(--skyblue);
+        font-weight: 600;
+        font-size: 18px;
+        padding: 12px 20px;
+        transition: all 0.4s ease;
+        position: relative;
+        display: block;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Enhanced Hover effect with gradient background */
+      .navbar ul li a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(77, 168, 218, 0.1),
+          rgba(0, 198, 255, 0.2),
+          rgba(77, 168, 218, 0.1)
+        );
+        transition: all 0.6s ease;
+        z-index: -1;
+      }
+
+      .navbar ul li a:hover::before {
+        left: 0;
+      }
+
+      /* Animated underline effect */
+      .navbar ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff, #4da8da);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: translateX(-50%);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.7);
+      }
+
+      .navbar ul li a:hover::after {
+        width: 80%;
+      }
+
+      .navbar ul li a:hover {
+        color: var(--silver);
+        text-shadow: 0 0 8px var(--silver);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active {
+        color: var(--silver);
+        background: linear-gradient(
+          135deg,
+          rgba(77, 168, 218, 0.2),
+          rgba(0, 198, 255, 0.3)
+        );
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active::after {
+        width: 80%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(77, 168, 218, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 198, 255, 0.1) 0%,
+            transparent 50%
+          );
+        z-index: -1;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+        color: var(--silver);
+        margin-bottom: 20px;
+        text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        animation: fadeInDown 1s ease-out, textGlow 3s infinite alternate;
+      }
+
+      .hero p {
+        font-size: 22px;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--secondary);
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      /* Floating elements */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.1);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.3);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        width: 30px;
+        height: 30px;
+      }
+
+      .floating-element:nth-child(2) {
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+        width: 50px;
+        height: 50px;
+      }
+
+      .floating-element:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+        width: 25px;
+        height: 25px;
+      }
+
+      /* Particle background effect */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--skyblue);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: floatParticle 15s infinite linear;
+      }
+
+      /* Experience Section */
+      .experience {
+        background: var(--bg);
+        padding: 80px 100px;
+        color: var(--skyblue);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .experience::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 70% 30%,
+          rgba(0, 198, 255, 0.05) 0%,
+          transparent 50%
+        );
+        z-index: -1;
+      }
+
+      /* Additional floating elements for experience section */
+      .experience-floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .experience-floating-element {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.08);
+        box-shadow: 0 0 8px rgba(77, 168, 218, 0.2);
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .experience-floating-element:nth-child(1) {
+        top: 15%;
+        left: 5%;
+        animation-delay: 1s;
+        width: 20px;
+        height: 20px;
+      }
+
+      .experience-floating-element:nth-child(2) {
+        top: 40%;
+        left: 90%;
+        animation-delay: 3s;
+        width: 35px;
+        height: 35px;
+      }
+
+      .experience-floating-element:nth-child(3) {
+        top: 70%;
+        left: 15%;
+        animation-delay: 5s;
+        width: 25px;
+        height: 25px;
+      }
+
+      .experience-floating-element:nth-child(4) {
+        top: 85%;
+        left: 80%;
+        animation-delay: 7s;
+        width: 15px;
+        height: 15px;
+      }
+
+      .section-title {
+        font-size: 42px;
+        color: var(--silver);
+        margin-bottom: 40px;
+        text-align: center;
+        text-shadow: 0 0 6px var(--silver);
+      }
+
+      .section-title::after {
+        content: "";
+        width: 100px;
+        height: 3px;
+        background: var(--skyblue);
+        display: block;
+        margin: 12px auto 0;
+        box-shadow: 0 0 10px var(--skyblue);
+      }
+
+      /* Experience Header with Image */
+      .experience-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        gap: 50px;
+      }
+
+      .experience-intro {
+        flex: 1;
+      }
+
+      .experience-intro h2 {
+        font-size: 36px;
+        color: var(--silver);
+        margin-bottom: 20px;
+        text-shadow: 0 0 5px var(--silver);
+      }
+
+      .experience-intro p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .experience-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .animated-image {
+        width: 350px;
+        height: 350px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #00c6ff, #0072ff, #4da8da);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(77, 168, 218, 0.4);
+        animation: float 6s ease-in-out infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .animated-image::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: rotate(45deg);
+        animation: shine 3s infinite;
+      }
+
+      /* View Toggle */
+      .view-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        gap: 20px;
+      }
+
+      .view-btn {
+        padding: 12px 25px;
+        background: rgba(77, 168, 218, 0.1);
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        color: var(--skyblue);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        font-weight: 600;
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.2);
+      }
+
+      .view-btn:hover {
+        background: rgba(77, 168, 218, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.3);
+      }
+
+      .view-btn.active {
+        background: rgba(77, 168, 218, 0.3);
+        color: var(--silver);
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: none;
+      }
+
+      .timeline.active {
+        display: block;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background: linear-gradient(to bottom, #00c6ff, #0072ff, #4da8da);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 25px 30px;
+        background: rgba(77, 168, 218, 0.1);
+        border-radius: 15px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        box-shadow: 0 5px 20px rgba(77, 168, 218, 0.2);
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(77, 168, 218, 0.4);
+        background: rgba(77, 168, 218, 0.15);
+      }
+
+      .timeline-content::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background: var(--skyblue);
+        top: 30px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: 0 0 10px var(--skyblue);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after {
+        left: -10px;
+      }
+
+      .timeline-date {
+        font-weight: bold;
+        color: var(--silver);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        text-shadow: 0 0 5px var(--silver);
+      }
+
+      .timeline-date i {
+        margin-right: 8px;
+        color: var(--skyblue);
+      }
+
+      .company {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: var(--silver);
+        text-shadow: 0 0 5px var(--silver);
+      }
+
+      .role {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: var(--skyblue);
+        font-weight: 600;
+      }
+
+      .description {
+        margin-bottom: 20px;
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      /* Cards Layout */
+      .cards-layout {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .cards-layout.active {
+        display: grid;
+      }
+
+      .experience-card {
+        background: rgba(77, 168, 218, 0.1);
+        border-radius: 15px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        box-shadow: 0 5px 20px rgba(77, 168, 218, 0.2);
+        padding: 30px;
+        transition: all 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .experience-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .experience-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(77, 168, 218, 0.4);
+        background: rgba(77, 168, 218, 0.15);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 24px;
+        color: var(--silver);
+        border: 2px solid var(--skyblue);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.5);
+      }
+
+      .card-title {
+        flex: 1;
+      }
+
+      .card-company {
+        font-size: 20px;
+        color: var(--silver);
+        text-shadow: 0 0 5px var(--silver);
+      }
+
+      .card-role {
+        font-size: 16px;
+        color: var(--skyblue);
+      }
+
+      .card-date {
+        font-size: 14px;
+        color: var(--silver);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .card-date i {
+        margin-right: 5px;
+      }
+
+      .card-description {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .achievements {
+        margin-bottom: 20px;
+      }
+
+      .achievements h4 {
+        color: var(--silver);
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .achievements ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .achievements li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .achievements li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--skyblue);
+        font-weight: bold;
+      }
+
+      /* Tech Stack */
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .tech-item {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+      }
+
+      .tech-item:hover {
+        background: rgba(77, 168, 218, 0.2);
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.5);
+      }
+
+      .tech-icon {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      .java {
+        color: #f89820;
+      }
+      .html {
+        color: #e34f26;
+      }
+      .css {
+        color: #1572b6;
+      }
+      .js {
+        color: #f7df1e;
+      }
+      .python {
+        color: #3776ab;
+      }
+      .mysql {
+        color: #336791;
+      }
+      .arduino {
+        color: #00979d;
+      }
+      .iot {
+        color: #00c6ff;
+      }
+      .bootstrap {
+        color: #7952b3;
+      }
+      .react {
+        color: #61dafb;
+      }
+      .node {
+        color: #68a063;
+      }
+
+      /* Stats Section */
+      .experience-stats {
+        background: rgba(77, 168, 218, 0.05);
+        padding: 60px 100px;
+        margin-top: 60px;
+        border-radius: 20px;
+        border: 1px solid rgba(77, 168, 218, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Floating elements for stats section */
+      .stats-floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .stats-floating-element {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.06);
+        box-shadow: 0 0 6px rgba(77, 168, 218, 0.15);
+        animation: float 7s ease-in-out infinite;
+      }
+
+      .stats-floating-element:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0.5s;
+        width: 15px;
+        height: 15px;
+      }
+
+      .stats-floating-element:nth-child(2) {
+        top: 60%;
+        left: 85%;
+        animation-delay: 2.5s;
+        width: 20px;
+        height: 20px;
+      }
+
+      .stats-floating-element:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4.5s;
+        width: 18px;
+        height: 18px;
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 30px 20px;
+        background: rgba(77, 168, 218, 0.1);
+        border-radius: 15px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        transition: all 0.4s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(77, 168, 218, 0.3);
+        background: rgba(77, 168, 218, 0.15);
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--silver);
+        text-shadow: 0 0 10px var(--silver);
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 18px;
+        color: var(--skyblue);
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes textGlow {
+        0% {
+          text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 25px rgba(77, 168, 218, 0.8),
+            0 0 35px rgba(77, 168, 218, 0.6);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .navbar {
+          padding: 30px 50px;
+        }
+
+        .experience {
+          padding: 80px 50px;
+        }
+
+        .experience-stats {
+          padding: 60px 50px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .experience-header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .animated-image {
+          width: 280px;
+          height: 280px;
+        }
+
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .timeline-content::after {
+          left: 21px;
+        }
+
+        .cards-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .navbar ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .experience {
+          padding: 60px 20px;
+        }
+
+        .experience-stats {
+          padding: 40px 20px;
+        }
+
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat-number {
+          font-size: 36px;
+        }
+
+        .animated-image {
+          width: 250px;
+          height: 250px;
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="experience-page">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo1">Sumanth</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+      <div class="container">
+        <h1>Experience.</h1>
+        <p>My professional journey and work experience...</p>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience fade-in" id="experience">
+      <!-- Floating elements for experience section -->
+      <div class="experience-floating-elements">
+        <div class="experience-floating-element"></div>
+        <div class="experience-floating-element"></div>
+        <div class="experience-floating-element"></div>
+        <div class="experience-floating-element"></div>
+      </div>
+
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- Experience Header with Image -->
+      <div class="experience-header">
+        <div class="experience-intro">
+          <h2>My Journey in Tech</h2>
+          <p>
+            From IoT development to full-stack web applications, I've gained
+            diverse experience across multiple domains. Each internship has
+            helped me grow as a developer and expand my technical skills.
+          </p>
+          <p>
+            I've worked with startups and established companies, contributing to
+            real-world projects that solve practical problems.
+          </p>
+        </div>
+        <div class="experience-image">
+          <div class="animated-image">
+            Building Digital Experiences<br />That Matter
+          </div>
+        </div>
+      </div>
+
+      <!-- View Toggle -->
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="timeline">
+          Timeline View
+        </button>
+        <button class="view-btn" data-view="cards">Cards View</button>
+      </div>
+
+      <!-- Timeline Layout -->
+      <div class="timeline active">
+        <!-- Tierra Automation -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">
+              <i class="far fa-calendar-alt"></i> May 2023 - July 2023
+            </div>
+            <h2 class="company">Tierra Automation</h2>
+            <h3 class="role">IoT Intern</h3>
+            <p class="description">
+              Developed a Smart Plant Monitoring system using IoT technology to
+              automate plant care and conserve water.
+            </p>
+            <div class="achievements">
+              <h4>Key Contributions:</h4>
+              <ul>
+                <li>Built IoT-based plant monitoring with Arduino</li>
+                <li>Developed Python scripts for data analysis</li>
+                <li>Created real-time monitoring dashboard</li>
+                <li>Reduced water consumption by 40%</li>
+              </ul>
+            </div>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <i class="fas fa-microchip tech-icon arduino"></i> Arduino
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-python tech-icon python"></i> Python
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-tint tech-icon iot"></i> Sensors
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-js-square tech-icon js"></i> JavaScript
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Website Makers -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">
+              <i class="far fa-calendar-alt"></i> January 2024 - March 2024
+            </div>
+            <h2 class="company">The Website Makers</h2>
+            <h3 class="role">Web Developer Intern</h3>
+            <p class="description">
+              Designed and developed Sageous Cart - a modern e-commerce platform
+              with focus on user experience and responsive design.
+            </p>
+            <div class="achievements">
+              <h4>Key Contributions:</h4>
+              <ul>
+                <li>
+                  Designed and implemented Sageous Cart e-commerce platform
+                </li>
+                <li>Developed responsive product catalog and shopping cart</li>
+                <li>Implemented user authentication and payment integration</li>
+                <li>Optimized website performance and loading speeds</li>
+              </ul>
+            </div>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <i class="fab fa-html5 tech-icon html"></i> HTML5
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-css3-alt tech-icon css"></i> CSS3
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-js-square tech-icon js"></i> JavaScript
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demy Software Solutions -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">
+              <i class="far fa-calendar-alt"></i> July 2024 - October 2024
+            </div>
+            <h2 class="company">Demy Software Solutions</h2>
+            <h3 class="role">Software Development Intern</h3>
+            <p class="description">
+              Built a full-stack Personal Diary application using
+              industry-standard technologies and agile methodologies.
+            </p>
+            <div class="achievements">
+              <h4>Key Contributions:</h4>
+              <ul>
+                <li>Full-stack web application development</li>
+                <li>User authentication implementation</li>
+                <li>Database design and optimization</li>
+                <li>Agile methodology practice</li>
+              </ul>
+            </div>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <i class="fab fa-java tech-icon java"></i> Java
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-html5 tech-icon html"></i> HTML5
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-css3-alt tech-icon css"></i> CSS3
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-database tech-icon mysql"></i> MySQL
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards Layout -->
+      <div class="cards-layout">
+        <!-- Tierra Automation Card -->
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <div class="card-title">
+              <h3 class="card-company">Tierra Automation</h3>
+              <p class="card-role">IoT Intern</p>
+            </div>
+          </div>
+          <div class="card-date">
+            <i class="far fa-calendar-alt"></i> May 2023 - July 2023
+          </div>
+          <p class="card-description">
+            Developed IoT-based Smart Plant Monitoring system for automated
+            plant care.
+          </p>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="fas fa-microchip tech-icon arduino"></i> Arduino
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-python tech-icon python"></i> Python
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-tint tech-icon iot"></i> Sensors
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-js-square tech-icon js"></i> JavaScript
+            </div>
+          </div>
+        </div>
+
+        <!-- The Website Makers Card -->
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="card-title">
+              <h3 class="card-company">The Website Makers</h3>
+              <p class="card-role">Web Developer Intern</p>
+            </div>
+          </div>
+          <div class="card-date">
+            <i class="far fa-calendar-alt"></i> January 2024 - March 2024
+          </div>
+          <p class="card-description">
+            Developed Sageous Cart - a modern e-commerce platform with
+            responsive design.
+          </p>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="fab fa-html5 tech-icon html"></i> HTML5
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-css3-alt tech-icon css"></i> CSS3
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-js-square tech-icon js"></i> JavaScript
+            </div>
+          </div>
+        </div>
+
+        <!-- Demy Software Solutions Card -->
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="card-title">
+              <h3 class="card-company">Demy Software Solutions</h3>
+              <p class="card-role">Software Development Intern</p>
+            </div>
+          </div>
+          <div class="card-date">
+            <i class="far fa-calendar-alt"></i> July 2024 - October 2024
+          </div>
+          <p class="card-description">
+            Developed a Personal Diary application using cutting-edge
+            technologies.
+          </p>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="fab fa-java tech-icon java"></i> Java
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-html5 tech-icon html"></i> HTML5
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-css3-alt tech-icon css"></i> CSS3
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-database tech-icon mysql"></i> MySQL
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Stats -->
+      <div class="experience-stats">
+        <!-- Floating elements for stats section -->
+        <div class="stats-floating-elements">
+          <div class="stats-floating-element"></div>
+          <div class="stats-floating-element"></div>
+          <div class="stats-floating-element"></div>
+        </div>
+
+        <h2 class="section-title">Experience Highlights</h2>
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-number" data-target="9">0</div>
+            <div class="stat-label">Months Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Companies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="12">0</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Projects</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Create particle background
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random properties
+          const size = Math.random() * 3 + 1;
+          const left = Math.random() * 100;
+          const animationDuration = Math.random() * 20 + 10;
+          const animationDelay = Math.random() * 5;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${left}%`;
+          particle.style.animationDuration = `${animationDuration}s`;
+          particle.style.animationDelay = `${animationDelay}s`;
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // View Toggle Functionality
+      const viewButtons = document.querySelectorAll(".view-btn");
+      const timeline = document.querySelector(".timeline");
+      const cardsLayout = document.querySelector(".cards-layout");
+
+      viewButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          viewButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Get the view type
+          const viewType = button.getAttribute("data-view");
+
+          // Show the selected view
+          if (viewType === "timeline") {
+            timeline.classList.add("active");
+            cardsLayout.classList.remove("active");
+          } else {
+            timeline.classList.remove("active");
+            cardsLayout.classList.add("active");
+          }
+        });
+      });
+
+      // Scroll animations
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      const experienceCards = document.querySelectorAll(".experience-card");
+      const statNumbers = document.querySelectorAll(".stat-number");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (
+                entry.target.classList.contains("timeline-item") ||
+                entry.target.classList.contains("experience-card")
+              ) {
+                entry.target.classList.add("visible");
+              }
+
+              // Animate stats
+              if (entry.target.classList.contains("stat-item")) {
+                animateStats();
+              }
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      timelineItems.forEach((item) => observer.observe(item));
+      experienceCards.forEach((card) => observer.observe(card));
+      document
+        .querySelectorAll(".stat-item")
+        .forEach((stat) => observer.observe(stat));
+
+      // Stats animation
+      function animateStats() {
+        statNumbers.forEach((stat) => {
+          const target = parseInt(stat.getAttribute("data-target"));
+          const duration = 2000; // 2 seconds
+          const step = target / (duration / 16); // 60fps
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+
+      // Navbar hover effects
+      const navLinks = document.querySelectorAll(".navbar ul li a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-3px)";
+          this.style.boxShadow = "0 8px 20px rgba(77, 168, 218, 0.5)";
+        });
+
+        link.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+          if (!this.classList.contains("active")) {
+            this.style.boxShadow = "none";
+          }
+        });
+      });
+
+      // Initialize animations on page load
+      window.addEventListener("load", () => {
+        createParticles();
+      });
+      // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Disable specific keys
+  document.addEventListener('keydown', function(e) {
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'u')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Developer tools detection
+  function detectDevTools() {
+    const widthThreshold = 160;
+    const heightThreshold = 160;
+    
+    if (window.outerWidth - window.innerWidth > widthThreshold || 
+        window.outerHeight - window.innerHeight > heightThreshold) {
+      document.body.innerHTML = '';
+      document.body.style.background = '#000';
+    }
+  }
+
+  // Continuous monitoring
+  setInterval(detectDevTools, 500);
+
+  
+    </script>
+  </body>
+</html>

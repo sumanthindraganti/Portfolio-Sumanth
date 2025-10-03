@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education - Sumanth</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #4da8da;
+        --secondary: #c0c0c0;
+        --dark: #000000;
+        --accent: #00c6ff;
+        --card-bg: rgba(77, 168, 218, 0.05);
+        --bg: #000000;
+        --silver: #c0c0c0;
+        --skyblue: #4da8da;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--dark);
+        color: var(--secondary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 100px;
+        background: rgba(0, 0, 0, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(77, 168, 218, 0.3);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      /* Logo - circular rotating */
+      .navbar .logo1 {
+        font-family: "Pacifico", cursive;
+        font-size: 36px;
+        color: var(--silver);
+        text-shadow: 0 0 2px var(--silver);
+        border: 3px solid var(--skyblue);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+      }
+
+      .navbar .logo1:hover {
+        box-shadow: 0 0 25px rgba(77, 168, 218, 0.8);
+        transform: scale(1.05);
+      }
+
+      /* Enhanced Navbar Menu */
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.2);
+        border: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      .navbar ul li {
+        position: relative;
+      }
+
+      .navbar ul li a {
+        text-decoration: none;
+        color: var(--skyblue);
+        font-weight: 600;
+        font-size: 18px;
+        padding: 12px 20px;
+        transition: all 0.4s ease;
+        position: relative;
+        display: block;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Enhanced Hover effect with gradient background */
+      .navbar ul li a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(77, 168, 218, 0.1),
+          rgba(0, 198, 255, 0.2),
+          rgba(77, 168, 218, 0.1)
+        );
+        transition: all 0.6s ease;
+        z-index: -1;
+      }
+
+      .navbar ul li a:hover::before {
+        left: 0;
+      }
+
+      /* Animated underline effect */
+      .navbar ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff, #4da8da);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: translateX(-50%);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.7);
+      }
+
+      .navbar ul li a:hover::after {
+        width: 80%;
+      }
+
+      .navbar ul li a:hover {
+        color: var(--silver);
+        text-shadow: 0 0 8px var(--silver);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active {
+        color: var(--silver);
+        background: linear-gradient(
+          135deg,
+          rgba(77, 168, 218, 0.2),
+          rgba(0, 198, 255, 0.3)
+        );
+        box-shadow: 0 0 15px rgba(77, 168, 218, 0.4);
+      }
+
+      .navbar ul li a.active::after {
+        width: 80%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(77, 168, 218, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 198, 255, 0.1) 0%,
+            transparent 50%
+          );
+        z-index: -1;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+        color: var(--silver);
+        margin-bottom: 20px;
+        text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        animation: fadeInDown 1s ease-out, textGlow 3s infinite alternate;
+      }
+
+      .hero p {
+        font-size: 22px;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--secondary);
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      /* Floating elements */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(77, 168, 218, 0.1);
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.3);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        width: 30px;
+        height: 30px;
+      }
+
+      .floating-element:nth-child(2) {
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+        width: 50px;
+        height: 50px;
+      }
+
+      .floating-element:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+        width: 25px;
+        height: 25px;
+      }
+
+      /* Particle background effect */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--skyblue);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: floatParticle 15s infinite linear;
+      }
+
+      /* Education Section */
+      .education-section {
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .education-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 70% 30%,
+          rgba(0, 198, 255, 0.05) 0%,
+          transparent 50%
+        );
+        z-index: -1;
+      }
+
+      /* Updated Section Title Styles */
+      .section-title {
+        font-size: 42px;
+        color: var(--silver);
+        margin-bottom: 40px;
+        text-align: center;
+        text-shadow: 0 0 6px var(--silver);
+      }
+
+      .section-title::after {
+        content: "";
+        width: 100px;
+        height: 3px;
+        background: var(--skyblue);
+        display: block;
+        margin: 12px auto 0;
+        box-shadow: 0 0 10px var(--skyblue);
+      }
+
+      .education-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+        font-size: 18px;
+        color: var(--secondary);
+        animation: fadeIn 1s ease-out 0.5s both;
+        text-align: justify;
+      }
+
+      /* Timeline Section */
+      .timeline-section {
+        padding: 60px 0;
+        position: relative;
+      }
+
+      .timeline-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 70% 30%,
+          rgba(0, 198, 255, 0.05) 0%,
+          transparent 50%
+        );
+        z-index: -1;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: linear-gradient(to bottom, var(--primary), var(--accent));
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px var(--primary);
+      }
+
+      .timeline-item {
+        padding: 20px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+        margin-bottom: 50px;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.5s ease;
+      }
+
+      .timeline-item.animate {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        transform: translateX(50px);
+      }
+
+      .timeline-item:nth-child(even).animate {
+        transform: translateX(0);
+      }
+
+      .timeline-content {
+        padding: 25px;
+        background-color: var(--card-bg);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(77, 168, 218, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), var(--accent));
+      }
+
+      .timeline-content:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(77, 168, 218, 0.2);
+      }
+
+      .timeline-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border: 2px solid rgba(77, 168, 218, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover .timeline-image {
+        transform: scale(1.05);
+      }
+
+      .timeline-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        color: var(--primary);
+        background: rgba(0, 0, 0, 0.7);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px rgba(77, 168, 218, 0.5);
+        animation: pulse 2s infinite;
+      }
+
+      /* Updated Timeline Title Styles */
+      .timeline-content h3 {
+        color: var(--silver);
+        margin-bottom: 10px;
+        font-size: 22px;
+        text-shadow: 0 0 5px var(--silver);
+      }
+
+      .timeline-content .institution {
+        font-size: 18px;
+        color: var(--secondary);
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .timeline-content .duration {
+        font-size: 16px;
+        color: var(--accent);
+        margin-bottom: 10px;
+        font-style: italic;
+      }
+
+      .timeline-content .performance {
+        font-size: 18px;
+        color: var(--secondary);
+        margin-bottom: 12px;
+        font-weight: 600;
+        background: rgba(77, 168, 218, 0.1);
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        border: 1px solid rgba(77, 168, 218, 0.3);
+        animation: glow 3s infinite alternate;
+      }
+
+      .timeline-content p {
+        color: var(--secondary);
+        text-align: justify;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary);
+        border: 4px solid var(--dark);
+        top: 30px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: 0 0 10px var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-item:hover::after {
+        transform: scale(1.3);
+        box-shadow: 0 0 15px var(--accent);
+      }
+
+      .timeline-item:nth-child(odd)::after {
+        right: -10px;
+      }
+
+      .timeline-item:nth-child(even)::after {
+        left: -10px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid rgba(77, 168, 218, 0.2);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: var(--secondary);
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+        transform: translateY(-5px) scale(1.2);
+      }
+
+      .copyright {
+        color: var(--secondary);
+        font-size: 14px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes textGlow {
+        0% {
+          text-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 25px rgba(77, 168, 218, 0.8),
+            0 0 35px rgba(77, 168, 218, 0.6);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 5px rgba(77, 168, 218, 0.3);
+        }
+        100% {
+          box-shadow: 0 0 15px rgba(77, 168, 218, 0.6);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .navbar {
+          padding: 30px 50px;
+        }
+
+        .education,
+        .additional-info {
+          padding: 80px 50px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .education-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .navbar ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .education,
+        .additional-info {
+          padding: 60px 20px;
+        }
+
+        .hero h1 {
+          font-size: 40px;
+        }
+
+        .floating-element {
+          width: 30px;
+          height: 30px;
+        }
+
+        .timeline::before {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .timeline-item:nth-child(odd)::after,
+        .timeline-item:nth-child(even)::after {
+          left: 21px;
+        }
+
+        .timeline-image {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo1">Sumanth</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html" class="active">Education</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+      <div class="container">
+        <h1>Education.</h1>
+        <p>My qualifications and degrees obtained thus far include...</p>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education-section">
+      <div class="container">
+        <h2 class="section-title">Academic Journey</h2>
+        <p class="education-intro">
+          Throughout my academic journey, I've developed a strong foundation in
+          computer science and engineering principles, complemented by practical
+          experience through internships and projects. My educational path has
+          equipped me with the technical skills and problem-solving abilities
+          necessary to excel in the field of software development.
+        </p>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="timeline">
+          <!-- High School -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="fas fa-school"></i>
+              </div>
+              <img
+                src="GOVT.png"
+                alt="Government High School"
+                class="timeline-image"
+              />
+              <h3>Secondary School Education (SSC)</h3>
+              <p class="institution">GOVT HIGH SCHOOL, PENDURTHI</p>
+              <p class="duration">2019</p>
+              <p class="performance">GPA: 9.2 / 10.0</p>
+              <p>
+                Completed secondary school education with excellent academic
+                performance. Developed foundational knowledge in science and
+                mathematics that paved the way for further technical education.
+              </p>
+            </div>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <img
+                src="Sri Gayatri Junior.jpg"
+                alt="Sri Gayatri Junior College"
+                class="timeline-image"
+              />
+              <h3>Intermediate Education (MPC)</h3>
+              <p class="institution">SRI GAYATRI JUNIOR COLLEGE</p>
+              <p class="duration">2019 - 2021</p>
+              <p class="performance">Percentage: 64.7%</p>
+              <p>
+                Completed intermediate education with Mathematics, Physics, and
+                Chemistry. Developed strong analytical and problem-solving
+                skills that formed the foundation for my engineering studies.
+              </p>
+            </div>
+          </div>
+
+          <!-- B.Tech -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <img src="nsrit.jpg" alt="NSRIT College" class="timeline-image" />
+              <h3>B.Tech in Computer Science and Engineering</h3>
+              <p class="institution">
+                NADIMAPALLI SATYANARAYANA RAJU INSTITUTE OF TECHNOLOGY (NSRIT)
+              </p>
+              <p class="duration">2021 - 2025</p>
+              <p class="performance">CGPA: 8.70 / 10.00</p>
+              <p>
+                Completed Bachelor of Technology in Computer Science and
+                Engineering. Gained expertise in programming, algorithms, data
+                structures, and software engineering principles through hands-on
+                projects.
+              </p>
+            </div>
+          </div>
+
+          <!-- Future Goals -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div
+                style="
+                  height: 180px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(77, 168, 218, 0.1),
+                    rgba(0, 198, 255, 0.2)
+                  );
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 15px;
+                  border: 2px solid rgba(77, 168, 218, 0.3);
+                "
+              >
+                <i
+                  class="fas fa-bullseye"
+                  style="font-size: 60px; color: var(--primary)"
+                ></i>
+              </div>
+              <h3>Future Goals & Aspirations</h3>
+              <p class="institution">Software Engineering Career</p>
+              <p class="duration">2025 & Beyond</p>
+              <p class="performance">Continuous Growth</p>
+              <p>
+                Aspiring to become a skilled software engineer and contribute to
+                innovative technological solutions. Planning to specialize in
+                full-stack development while continuously learning emerging
+                technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <p class="copyright">© 2024 Sumanth. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Create particle background
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random properties
+          const size = Math.random() * 3 + 1;
+          const left = Math.random() * 100;
+          const animationDuration = Math.random() * 20 + 10;
+          const animationDelay = Math.random() * 5;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${left}%`;
+          particle.style.animationDuration = `${animationDuration}s`;
+          particle.style.animationDelay = `${animationDelay}s`;
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Animation on scroll
+      function animateOnScroll() {
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        // Timeline items animation
+        timelineItems.forEach((item, index) => {
+          const itemPosition = item.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+
+          if (itemPosition < screenPosition) {
+            setTimeout(() => {
+              item.classList.add("animate");
+            }, index * 300);
+          }
+        });
+      }
+
+      // Initialize animations when page loads and on scroll
+      window.addEventListener("load", () => {
+        createParticles();
+        animateOnScroll();
+      });
+      window.addEventListener("scroll", animateOnScroll);
+
+      // Navbar hover effects
+      const navLinks = document.querySelectorAll(".navbar ul li a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-3px)";
+          this.style.boxShadow = "0 8px 20px rgba(77, 168, 218, 0.5)";
+        });
+
+        link.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+          if (!this.classList.contains("active")) {
+            this.style.boxShadow = "none";
+          }
+        });
+      });
+
+      // Add initial animation to hero section
+      document.addEventListener("DOMContentLoaded", function () {
+        const heroTitle = document.querySelector(".hero h1");
+        const heroText = document.querySelector(".hero p");
+
+        heroTitle.style.animation =
+          "fadeInDown 1s ease-out, textGlow 3s infinite alternate";
+        heroText.style.animation = "fadeInUp 1s ease-out 0.3s both";
+      });
+      // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Disable specific keys
+  document.addEventListener('keydown', function(e) {
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'u')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Developer tools detection
+  function detectDevTools() {
+    const widthThreshold = 160;
+    const heightThreshold = 160;
+    
+    if (window.outerWidth - window.innerWidth > widthThreshold || 
+        window.outerHeight - window.innerHeight > heightThreshold) {
+      document.body.innerHTML = '';
+      document.body.style.background = '#000';
+    }
+  }
+
+  // Continuous monitoring
+  setInterval(detectDevTools, 500);
+
+  
+    </script>
+  </body>
+</html>
