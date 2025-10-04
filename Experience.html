@@ -438,164 +438,13 @@
         animation: shine 3s infinite;
       }
 
-      /* View Toggle */
-      .view-toggle {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .view-btn {
-        padding: 12px 25px;
-        background: rgba(77, 168, 218, 0.1);
-        border: 1px solid rgba(77, 168, 218, 0.3);
-        color: var(--skyblue);
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        font-weight: 600;
-        box-shadow: 0 0 10px rgba(77, 168, 218, 0.2);
-      }
-
-      .view-btn:hover {
-        background: rgba(77, 168, 218, 0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(77, 168, 218, 0.3);
-      }
-
-      .view-btn.active {
-        background: rgba(77, 168, 218, 0.3);
-        color: var(--silver);
-        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
-      }
-
-      /* Timeline */
-      .timeline {
-        position: relative;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: none;
-      }
-
-      .timeline.active {
-        display: block;
-      }
-
-      .timeline::after {
-        content: "";
-        position: absolute;
-        width: 6px;
-        background: linear-gradient(to bottom, #00c6ff, #0072ff, #4da8da);
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -3px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(77, 168, 218, 0.5);
-      }
-
-      .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.6s ease;
-      }
-
-      .timeline-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .timeline-item:nth-child(odd) {
-        left: 0;
-      }
-
-      .timeline-item:nth-child(even) {
-        left: 50%;
-      }
-
-      .timeline-content {
-        padding: 25px 30px;
-        background: rgba(77, 168, 218, 0.1);
-        border-radius: 15px;
-        border: 1px solid rgba(77, 168, 218, 0.3);
-        box-shadow: 0 5px 20px rgba(77, 168, 218, 0.2);
-        transition: all 0.4s ease;
-        position: relative;
-      }
-
-      .timeline-content:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(77, 168, 218, 0.4);
-        background: rgba(77, 168, 218, 0.15);
-      }
-
-      .timeline-content::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: -10px;
-        background: var(--skyblue);
-        top: 30px;
-        border-radius: 50%;
-        z-index: 1;
-        box-shadow: 0 0 10px var(--skyblue);
-      }
-
-      .timeline-item:nth-child(odd) .timeline-content::after {
-        left: -10px;
-      }
-
-      .timeline-date {
-        font-weight: bold;
-        color: var(--silver);
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        text-shadow: 0 0 5px var(--silver);
-      }
-
-      .timeline-date i {
-        margin-right: 8px;
-        color: var(--skyblue);
-      }
-
-      .company {
-        font-size: 24px;
-        margin-bottom: 10px;
-        color: var(--silver);
-        text-shadow: 0 0 5px var(--silver);
-      }
-
-      .role {
-        font-size: 20px;
-        margin-bottom: 15px;
-        color: var(--skyblue);
-        font-weight: 600;
-      }
-
-      .description {
-        margin-bottom: 20px;
-        line-height: 1.6;
-        font-size: 16px;
-      }
-
       /* Cards Layout */
       .cards-layout {
-        display: none;
+        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
         max-width: 1200px;
         margin: 0 auto;
-      }
-
-      .cards-layout.active {
-        display: grid;
       }
 
       .experience-card {
@@ -966,25 +815,6 @@
           height: 280px;
         }
 
-        .timeline::after {
-          left: 31px;
-        }
-
-        .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-        }
-
-        .timeline-item:nth-child(odd),
-        .timeline-item:nth-child(even) {
-          left: 0;
-        }
-
-        .timeline-content::after {
-          left: 21px;
-        }
-
         .cards-layout {
           grid-template-columns: 1fr;
         }
@@ -1089,130 +919,6 @@
         </div>
       </div>
 
-      <!-- View Toggle -->
-      <div class="view-toggle">
-        <button class="view-btn active" data-view="timeline">
-          Timeline View
-        </button>
-        <button class="view-btn" data-view="cards">Cards View</button>
-      </div>
-
-      <!-- Timeline Layout -->
-      <div class="timeline active">
-        <!-- Tierra Automation -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">
-              <i class="far fa-calendar-alt"></i> May 2023 - July 2023
-            </div>
-            <h2 class="company">Tierra Automation</h2>
-            <h3 class="role">IoT Intern</h3>
-            <p class="description">
-              Developed a Smart Plant Monitoring system using IoT technology to
-              automate plant care and conserve water.
-            </p>
-            <div class="achievements">
-              <h4>Key Contributions:</h4>
-              <ul>
-                <li>Built IoT-based plant monitoring with Arduino</li>
-                <li>Developed Python scripts for data analysis</li>
-                <li>Created real-time monitoring dashboard</li>
-                <li>Reduced water consumption by 40%</li>
-              </ul>
-            </div>
-            <div class="tech-stack">
-              <div class="tech-item">
-                <i class="fas fa-microchip tech-icon arduino"></i> Arduino
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-python tech-icon python"></i> Python
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-tint tech-icon iot"></i> Sensors
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-js-square tech-icon js"></i> JavaScript
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Website Makers -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">
-              <i class="far fa-calendar-alt"></i> January 2024 - March 2024
-            </div>
-            <h2 class="company">The Website Makers</h2>
-            <h3 class="role">Web Developer Intern</h3>
-            <p class="description">
-              Designed and developed Sageous Cart - a modern e-commerce platform
-              with focus on user experience and responsive design.
-            </p>
-            <div class="achievements">
-              <h4>Key Contributions:</h4>
-              <ul>
-                <li>
-                  Designed and implemented Sageous Cart e-commerce platform
-                </li>
-                <li>Developed responsive product catalog and shopping cart</li>
-                <li>Implemented user authentication and payment integration</li>
-                <li>Optimized website performance and loading speeds</li>
-              </ul>
-            </div>
-            <div class="tech-stack">
-              <div class="tech-item">
-                <i class="fab fa-html5 tech-icon html"></i> HTML5
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-css3-alt tech-icon css"></i> CSS3
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-js-square tech-icon js"></i> JavaScript
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demy Software Solutions -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">
-              <i class="far fa-calendar-alt"></i> July 2024 - October 2024
-            </div>
-            <h2 class="company">Demy Software Solutions</h2>
-            <h3 class="role">Software Development Intern</h3>
-            <p class="description">
-              Built a full-stack Personal Diary application using
-              industry-standard technologies and agile methodologies.
-            </p>
-            <div class="achievements">
-              <h4>Key Contributions:</h4>
-              <ul>
-                <li>Full-stack web application development</li>
-                <li>User authentication implementation</li>
-                <li>Database design and optimization</li>
-                <li>Agile methodology practice</li>
-              </ul>
-            </div>
-            <div class="tech-stack">
-              <div class="tech-item">
-                <i class="fab fa-java tech-icon java"></i> Java
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-html5 tech-icon html"></i> HTML5
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-css3-alt tech-icon css"></i> CSS3
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-database tech-icon mysql"></i> MySQL
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Cards Layout -->
       <div class="cards-layout">
         <!-- Tierra Automation Card -->
@@ -1230,9 +936,18 @@
             <i class="far fa-calendar-alt"></i> May 2023 - July 2023
           </div>
           <p class="card-description">
-            Developed IoT-based Smart Plant Monitoring system for automated
-            plant care.
+            Developed a Smart Plant Monitoring system using IoT technology to
+            automate plant care and conserve water.
           </p>
+          <div class="achievements">
+            <h4>Key Contributions:</h4>
+            <ul>
+              <li>Built IoT-based plant monitoring with Arduino</li>
+              <li>Developed Python scripts for data analysis</li>
+              <li>Created real-time monitoring dashboard</li>
+              <li>Reduced water consumption by 40%</li>
+            </ul>
+          </div>
           <div class="tech-stack">
             <div class="tech-item">
               <i class="fas fa-microchip tech-icon arduino"></i> Arduino
@@ -1264,9 +979,18 @@
             <i class="far fa-calendar-alt"></i> January 2024 - March 2024
           </div>
           <p class="card-description">
-            Developed Sageous Cart - a modern e-commerce platform with
-            responsive design.
+            Designed and developed Sageous Cart - a modern e-commerce platform
+            with focus on user experience and responsive design.
           </p>
+          <div class="achievements">
+            <h4>Key Contributions:</h4>
+            <ul>
+              <li>Designed and implemented Sageous Cart e-commerce platform</li>
+              <li>Developed responsive product catalog and shopping cart</li>
+              <li>Implemented user authentication and payment integration</li>
+              <li>Optimized website performance and loading speeds</li>
+            </ul>
+          </div>
           <div class="tech-stack">
             <div class="tech-item">
               <i class="fab fa-html5 tech-icon html"></i> HTML5
@@ -1295,9 +1019,18 @@
             <i class="far fa-calendar-alt"></i> July 2024 - October 2024
           </div>
           <p class="card-description">
-            Developed a Personal Diary application using cutting-edge
-            technologies.
+            Built a full-stack Personal Diary application using
+            industry-standard technologies and agile methodologies.
           </p>
+          <div class="achievements">
+            <h4>Key Contributions:</h4>
+            <ul>
+              <li>Full-stack web application development</li>
+              <li>User authentication implementation</li>
+              <li>Database design and optimization</li>
+              <li>Agile methodology practice</li>
+            </ul>
+          </div>
           <div class="tech-stack">
             <div class="tech-item">
               <i class="fab fa-java tech-icon java"></i> Java
@@ -1372,34 +1105,7 @@
         }
       }
 
-      // View Toggle Functionality
-      const viewButtons = document.querySelectorAll(".view-btn");
-      const timeline = document.querySelector(".timeline");
-      const cardsLayout = document.querySelector(".cards-layout");
-
-      viewButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          // Remove active class from all buttons
-          viewButtons.forEach((btn) => btn.classList.remove("active"));
-          // Add active class to clicked button
-          button.classList.add("active");
-
-          // Get the view type
-          const viewType = button.getAttribute("data-view");
-
-          // Show the selected view
-          if (viewType === "timeline") {
-            timeline.classList.add("active");
-            cardsLayout.classList.remove("active");
-          } else {
-            timeline.classList.remove("active");
-            cardsLayout.classList.add("active");
-          }
-        });
-      });
-
       // Scroll animations
-      const timelineItems = document.querySelectorAll(".timeline-item");
       const experienceCards = document.querySelectorAll(".experience-card");
       const statNumbers = document.querySelectorAll(".stat-number");
 
@@ -1407,10 +1113,7 @@
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              if (
-                entry.target.classList.contains("timeline-item") ||
-                entry.target.classList.contains("experience-card")
-              ) {
+              if (entry.target.classList.contains("experience-card")) {
                 entry.target.classList.add("visible");
               }
 
@@ -1424,7 +1127,6 @@
         { threshold: 0.3 }
       );
 
-      timelineItems.forEach((item) => observer.observe(item));
       experienceCards.forEach((card) => observer.observe(card));
       document
         .querySelectorAll(".stat-item")
@@ -1469,6 +1171,12 @@
       // Initialize animations on page load
       window.addEventListener("load", () => {
         createParticles();
+        // Animate cards on load
+        experienceCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, index * 200);
+        });
       });
       // Disable right-click
   document.addEventListener('contextmenu', function(e) {
