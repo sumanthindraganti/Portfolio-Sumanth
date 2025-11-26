@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Resume - Indraganti Surya Sumanth</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .resume-preview {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        /* Resume Styling - A4 Format with Optimized Layout */
+        #resume-content {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm 15mm 10mm 15mm;
+            background: white;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resume-header {
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2c3e50;
+            margin-bottom: 12px;
+        }
+        
+        .resume-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .resume-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 6px;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .resume-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resume-section {
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .column-content {
+            flex: 1;
+        }
+        
+        .item {
+            margin-bottom: 10px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #34495e;
+        }
+        
+        .item-meta {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin: 2px 0;
+        }
+        
+        .item-details {
+            font-size: 14px;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        
+        .skill-tag {
+            background: #eef2f7;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .project-item {
+            margin-bottom: 10px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #34495e;
+        }
+        
+        .project-link {
+            font-size: 13px;
+            color: #2980b9;
+            text-decoration: none;
+            margin-top: 3px;
+            display: inline-block;
+        }
+        
+        .languages-hobbies {
+            display: flex;
+            gap: 40px;
+            margin-top: 0;
+        }
+        
+        .lh-column {
+            flex: 1;
+        }
+        
+        .lh-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 6px 0 0 0;
+        }
+        
+        .lh-list li {
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .declaration-section {
+            margin-top: 10px;
+        }
+        
+        .declaration {
+            font-size: 13px;
+            font-style: italic;
+            padding-top: 5px;
+            margin-top: 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Professional Resume</h1>
+            <p class="subtitle">Indraganti Surya Sumanth | Download as PDF</p>
+        </header>
+        
+        <div class="controls">
+            <button id="downloadBtn" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                Download PDF Resume
+            </button>
+            <button id="printBtn" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                </svg>
+                Print Resume
+            </button>
+        </div>
+        
+        <div class="resume-preview">
+            <div id="resume-content">
+                <!-- Header Section -->
+                <div class="resume-header">
+                    <h1 class="resume-name">INDRAGANTI SURYA SUMANTH</h1>
+                    <div class="resume-contact">
+                        <div>Visakhapatnam, Andhra Pradesh</div>
+                        <div>sumanthstar369@gmail.com</div>
+                        <div>9347059530</div>
+                        <div>
+                            <a href="https://sumanth-portfolio18.netlify.app/" target="_blank">Portfolio</a> | 
+                            <a href="https://github.com/sumanthindraganti" target="_blank">GitHub</a> | 
+                            <a href="https://www.linkedin.com/in/surya-sumanth-indraganti-9a7653276/" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Objective -->
+                <div class="resume-section">
+                    <h2 class="section-title">CAREER OBJECTIVE</h2>
+                    <p class="item-details">Passionate about technology and eager to tackle new challenges in a supportive team environment. With a strong foundation in Computer Science, I'm excited to make meaningful contributions to innovative projects.</p>
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="resume-main">
+                    <!-- Two Column Layout -->
+                    <div class="two-column">
+                        <!-- Education Column -->
+                        <div class="column">
+                            <div class="column-content">
+                                <div class="resume-section">
+                                    <h2 class="section-title">EDUCATION</h2>
+                                    
+                                    <div class="item">
+                                        <div class="item-title">B.Tech in Computer Science and Engineering</div>
+                                        <div class="item-meta">Nadimapalli Satyanarayana Raju Institute of Technology (NSRIT)</div>
+                                        <div class="item-meta">2021 - 2025</div>
+                                        <div class="item-details"><strong>CGPA: 8.70 / 10.00</strong></div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="item-title">Intermediate Education (MPC)</div>
+                                        <div class="item-meta">Sri Gayatri Junior College</div>
+                                        <div class="item-meta">2019 - 2022</div>
+                                        <div class="item-details"><strong>Percentage: 64.7%</strong></div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="item-title">SSC - 10th Standard</div>
+                                        <div class="item-meta">Govt High School, Pendurthi</div>
+                                        <div class="item-meta">2019</div>
+                                        <div class="item-details"><strong>GPA: 9.2 / 10.0</strong></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Skills Section -->
+                                <div class="resume-section">
+                                    <h2 class="section-title">TECHNICAL SKILLS</h2>
+                                    <div class="skills-container">
+                                        <span class="skill-tag">Java</span>
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">C</span>
+                                        <span class="skill-tag">C++</span>
+                                        <span class="skill-tag">JavaScript</span>
+                                        <span class="skill-tag">HTML & CSS</span>
+                                        <span class="skill-tag">DBMS</span>
+                                         <span class="skill-tag">SQL</span>
+                                        <span class="skill-tag">App Development</span>
+                                        <span class="skill-tag">MS Office</span>
+                                        <span class="skill-tag">DevOps</span>
+                                        <span class="skill-tag">AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience Column -->
+                        <div class="column">
+                            <div class="column-content">
+                                <div class="resume-section">
+                                    <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+                                    
+                                    <div class="item">
+                                        <div class="item-title">Intern | Demy Software Solutions</div>
+                                        <div class="item-meta">July 2024 - October 2024</div>
+                                        <div class="item-details">
+                                            Developed a Personal Diary application using cutting-edge technologies aligned with industry standards in a dynamic environment.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="item-title">Intern | Tierra Automation</div>
+                                        <div class="item-meta">May 2023 - July 2023</div>
+                                        <div class="item-details">
+                                            Worked on a Smart Plant Monitoring project using IoT technology. Gained hands-on experience developing a system that monitors soil moisture levels and automates watering decisions.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Projects Section -->
+                                <div class="resume-section">
+                                    <h2 class="section-title">PROJECTS</h2>
+                                    
+                                    <div class="project-item">
+                                        <div class="project-title">Smart Plant Monitoring</div>
+                                        <div class="item-details">
+                                            Led IoT domain project focusing on residential water conservation. Automates plant watering based on soil moisture, reducing manual intervention and optimizing water usage.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-item">
+                                        <div class="project-title">Learning League</div>
+                                        <div class="item-details">
+                                            Developed a game that integrates coding challenges into gameplay, making programming more engaging and effective for learning.
+Designed interactive levels with score tracking and progress visualization to enhance user motivation and understanding.</div>
+                                        <a href="https://quiet-praline-d07599.netlify.app" class="project-link">Project Link: https://quiet-praline-d07599.netlify.app</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages & Hobbies -->
+                    <div class="resume-section">
+                        <h2 class="section-title">LANGUAGES & HOBBIES</h2>
+                        <div class="languages-hobbies">
+                            <div class="lh-column">
+                                <h3 style="font-size: 15px; margin-bottom: 4px; color: #34495e;">Languages</h3>
+                                <ul class="lh-list">
+                                    <li>Telugu (Native)</li>
+                                    <li>English (Proficient)</li>
+                                    <li>Hindi (Proficient)</li>
+                                </ul>
+                            </div>
+                            <div class="lh-column">
+                                <h3 style="font-size: 15px; margin-bottom: 4px; color: #34495e;">Hobbies</h3>
+                                <ul class="lh-list">
+                                    <li>Watching Cricket</li>
+                                    <li>Watching Movies</li>
+                                    <li>Playing Games</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Declaration Section -->
+                    <div class="declaration-section">
+                        <h2 class="section-title">DECLARATION</h2>
+                        <div class="declaration">
+                            I, <strong>INDRAGANTI SURYA SUMANTH</strong> here by declare that the above mentioned information is correct to my knowledge and belief, and I bear the responsibility for the correctness of the above mentioned particulars.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const element = document.getElementById('resume-content');
+            const opt = {
+                margin: 0,
+                filename: 'Indraganti_Surya_Sumanth_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opt).from(element).save();
+        });
+        
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>
